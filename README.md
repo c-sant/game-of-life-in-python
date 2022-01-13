@@ -8,6 +8,8 @@ Devised by the British mathematician John Horton Conway in 1970, The Game of Lif
 playing by itself ad infinitum. Following a set of few and simple rules, the board keeps updating alone, creating new scenarios every update.
 The player only sets the initial scenario just so Life can continue.
 
+## :grey_question: How it works
+
 There is a board that works as a 2D grid of cells. Each cell can be either dead or alive, and this state may or may not change every time the game
 updates. For each update, the game evalutes a few rules for each cell:
 
@@ -22,7 +24,7 @@ Each cell has at least 3 and at most 8 neighbours, and their fate in the next "a
   <img src="https://i.imgur.com/TcIsyTX.png"/>
 </div>
 
-## :grey_question: How it works
+### The Python Implementation
 
 There are two classes: ``Cell`` and ``Board``. Each cell stores its ``x`` and ``y`` coordinates, as well as its state. The state is 
 represented by a property called ``alive``, which can be either **True** or **False**. Cells also store the coordinates of all of its 
