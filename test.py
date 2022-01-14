@@ -1,4 +1,4 @@
-from board import Board
+from life import Board
 
 def test_rules():
     # Rules:
