@@ -55,6 +55,7 @@ class VisualBoard(Board):
 
         self.cell_height = board_size // self.rows
         self.cell_width = board_size // self.cols
+        
 
     def generate(self, input_board: list):
         """Generates new board out of 2D Python list."""

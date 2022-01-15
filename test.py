@@ -1,4 +1,5 @@
 from life import Board
+import visual_life
 
 def test_rules():
     # Rules:
@@ -187,4 +188,6 @@ if __name__ == '__main__':
         [0, 0, 0, 0, 0]
     ]
 
-    test_pattern(beacon_pattern)
+    # test_pattern(beacon_pattern)
+
+    visual_life.run()
