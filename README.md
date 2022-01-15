@@ -24,6 +24,16 @@ Each cell has at least 3 and at most 8 neighbours, and their fate in the next "a
   <img src="https://i.imgur.com/TcIsyTX.png"/>
 </div>
 
+### Controls
+
+- ``Left mouse click``: "spawns" (i.e. gives life to) clicked cell.
+- ``Right mouse click``: "kills" clicked cell.
+- ``T``: toggle colors.
+- ``R``: reset board (kill all cells).
+- ``Up``: increase game speed.
+- ``Down``: decrease game speed.
+- ``Space bar``: starts/stops the game. 
+
 ### The Python Implementation
 
 There are two classes: ``Cell`` and ``Board``. Each cell stores its ``x`` and ``y`` coordinates, as well as its state. The state is 
@@ -42,10 +52,29 @@ One can also get/set values to the Board elements by using its row and column co
 
 Finally, the Board's ``update`` method toggles every cell according to the game rules.
 
+### The Visual Implementation
+
+For the visual game I used Pygame and there are two new classes: ``VisualBoard`` and ``VisualCell``, each inheriting their non-graphical equivalent.
+
+The ``Visual Board`` has a new ``render`` method which draws every cell into the Pygame window. Besides the graphic part, the Board is still a Python 
+list of lists essentially. There is also the ``get_cell`` method, which returns the cell in the grid according to its coordinates in order to manipulate 
+it once it gets clicked. 
+
+The ``update`` method also has a new parameter: ``speed``. This value represents the amount of seconds the game is going to take to update the board.
+
+The ``Visual Cell``'s method ``draw`` is called to draw it on the screen. The ``toggle`` method also sets the color corresponding to the cell state, in
+order to reflect the change in the graphic board.
+
+To run the visual game, all you have to do is import the ``run`` function from visual_life.py and execute it. A 480x480 screen will show up. The default
+board has 48x48 cells. Since the goal of the project is mainly personal improvement with the Python language, there is not much customization of the game,
+besides swapping the game colors by pressing ``T`` on the keyboard.
+
 ## Example:
 
+The following is an example of the non-visual game:
+
 ```
-from board import Board
+from life import Board # life.py
 
 b = Board(0, 0) # initialized an empty Board
 
@@ -86,9 +115,19 @@ The output should be:
 0 0 0 0 0
 ```
 
+To run the game, you just need the following code:
+
+```
+import visual_life # visual_life.py
+
+visual_life.run()
+```
+
+
 ## 💻 Requirements
 
 The following setup was used to make the source code on this repository:
 
 * Windows 10
 * Python 3.8.10
+* Pygame
