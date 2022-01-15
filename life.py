@@ -10,21 +10,26 @@ class Cell:
         self._board = board
         self._neighbours = self.set_neighbours()
 
+
     @property
     def alive(self):
         """Returns True if cell is alive; otherwise, returns False."""
         return self._alive
 
+
     def toggle(self):
-        """Toggle cell state: dies if alive; becomes alive if dead."""
+        """Toggles cell state: dies if alive; becomes alive if dead."""
         self._alive = not self._alive
+
 
     def __str__(self):
         return str(int(self._alive))
 
+
     def __repr__(self):
         return str(f'[Cell: (x: {self.x}, y: {self.y}, state: {int(self.alive)})]')
     
+
     def set_neighbours(self):
         """Gets the coordinates for each neighbouring cell."""
         neighbours = []
@@ -38,19 +43,23 @@ class Cell:
         
         return neighbours
                 
+
     def get_neighbours_states(self):
         """Gets the state each of the neighbouring cell is in currently."""
         return [int(self._board[index].alive) for index in self._neighbours]
 
+
     def get_neighbour_population(self):
         """Get total of living neighbour cells."""
         return sum(self.get_neighbours_states())
+
 
 class Board:
     """The game board that stores all the cells."""
 
     def __init__(self, rows: int, columns: int):
         self.generate([[0 for col in range(columns)] for row in range(rows)])
+
 
     def generate(self, input_board: list):
         """Generates new board out of 2D Python list."""
@@ -64,13 +73,20 @@ class Board:
                 if col == 0: self._board[i].append(Cell(self, i, j))
                 else: self._board[i].append(Cell(self, i, j, True))
 
+
     def __getitem__(self, index):
         row, col = index
         return self._board[row][col]
 
+
     def __setitem__(self, index, value):
         row, col = index
         self._board[row][col] = value
+
+    
+    def __len__(self):
+        return (self.rows, self.cols)
+
 
     def __str__(self):
         string = []
@@ -82,6 +98,7 @@ class Board:
             string[i] = ' '.join(string[i])
 
         return '\n'.join(string)
+
 
     def update(self):
         """
