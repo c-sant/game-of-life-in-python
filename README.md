@@ -1,5 +1,9 @@
 # The Game of Life in Python
 
+<div>
+  <img src="https://media.giphy.com/media/rMQOU5VHWbYOlemnIU/giphy.gif"/>
+</div>
+
 > An implementation of Conway's Game of Life in Python.
 
 ## The Game of Life
